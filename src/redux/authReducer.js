@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   cars: {
     item: [],
     isLoading: false,
-    error: false,
+    error: null,
   },
   filter: '',
 };
@@ -28,9 +28,9 @@ const carsSlice = createSlice({
         state.cars.isLoading = false;
         state.cars.item = action.payload;
       })
-      .addCase(fetchCars.rejected, state => {
+      .addCase(fetchCars.rejected, (state, action) => {
         state.cars.isLoading = false;
-        state.cars.error = null;
+        state.cars.error = action.error.message;
       }),
 });
 

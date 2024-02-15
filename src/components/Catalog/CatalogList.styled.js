@@ -31,7 +31,7 @@ export const StyledImg = styled.img`
       rgba(18, 20, 23, 0.5) 2.5%,
       rgba(18, 20, 23, 0) 41.071%
     ),
-   
+    url(image);
 `;
 
 export const ModelDiv = styled.div`

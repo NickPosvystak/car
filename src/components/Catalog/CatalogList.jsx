@@ -3,7 +3,6 @@ import {
   StyledUl,
   StyledImg,
   StyledList,
-  StyledButton,
   ModelDiv,
   StyledDescription,
 } from './CatalogList.styled';
@@ -12,6 +11,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/operations';
 import { selectItems, selectItemsFilter } from '../../redux/selectors';
+import ModalBtn from 'components/Modal/Modal';
 
 const CatalogList = () => {
   const dispatch = useDispatch();
@@ -33,8 +33,8 @@ const CatalogList = () => {
         item.model &&
         item.model.toLowerCase().includes(filter.toLowerCase().trim())
     );
-
-  return (
+  
+   return (
     <>
       <StyledUl>
         {filteredCars &&
@@ -75,7 +75,9 @@ const CatalogList = () => {
                     {city}, {country} | {rentalCompany} | {type} | {id} |{' '}
                     {accessories[0]}
                   </StyledDescription>
-                  <StyledButton type="button">Learn more</StyledButton>
+                  <ModalBtn>
+                    Learn more
+                  </ModalBtn>
                 </StyledList>
               );
             }
