@@ -15,7 +15,7 @@ export default function BrandFilter() {
 
   const items = useSelector(selectItems) || [];
 
-  const filteredModels = Array.isArray(items) && items.map(item => item.model);
+  const filteredModels = Array.isArray(items) && items.map(item => item.make);
 
   return (
     <StyledAutocomplete

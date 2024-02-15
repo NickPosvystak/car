@@ -58,8 +58,8 @@ const CatalogList = () => {
               mileage,
             }) => {
               const addressParts = address.split(',').map(part => part.trim());
-              const city = addressParts[1]; 
-              const country = addressParts[2]; 
+              const city = addressParts[1];
+              const country = addressParts[2];
 
               return (
                 <StyledList key={id}>
@@ -79,8 +79,8 @@ const CatalogList = () => {
                 </StyledList>
               );
             }
-            )}
-          </StyledUl>
+          )}
+      </StyledUl>
     </>
   );
 };
