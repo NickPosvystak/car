@@ -63,7 +63,7 @@ const CatalogList = () => {
 
               return (
                 <StyledList key={id}>
-                  <StyledImg src={img} alt="car" />
+                  <StyledImg src={img} alt={make} />
                   <ModelDiv>
                     <span>
                       {make}&nbsp;
