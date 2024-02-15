@@ -1,22 +1,20 @@
 import React from 'react';
 import { StyledContainer } from './FilterCars.styled';
 import BrandFilter from 'components/BrandFilter/BrandFilter';
+import Price from 'components/Price/Price';
+import MileageRangeSelector from 'components/KmFilter/KmFilter';
 
 export const FilterCars = () => {
   return (
     <StyledContainer>
       <label>
-        <p>Car brand</p>
         <BrandFilter />
       </label>
       <label>
-        <p>Price / 1 hour</p>
-        <input />
+        <Price />
       </label>
       <label>
-        {' '}
-        <p>Car mileage / km</p>
-        <input />
+        <MileageRangeSelector />
       </label>
       <button type="button">Search</button>
     </StyledContainer>

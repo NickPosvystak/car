@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCars } from '../../redux/operations';
 import { selectItems } from '../../redux/selectors';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function ComboBox() {
+export default function Price() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,17 +15,23 @@ export default function ComboBox() {
   }, [dispatch]);
 
   const items = useSelector(selectItems) || [];
-//   const filter = useSelector(selectItemsFilter) || '';
+  //   const filter = useSelector(selectItemsFilter) || '';
 
-  const filteredModels = Array.isArray(items) && items.map(item => item.model);
+  const filteredPrice =
+    Array.isArray(items) &&
+    items.map(item => ({
+      label: item.rentalPrice,
+      key: uuidv4(), // Generate a unique identifier for each item
+    }));
 
   return (
     <Autocomplete
       disablePortal
       id="combo-box-demo"
-      options={filteredModels}
+      options={filteredPrice}
+      getOptionLabel={option => option.label}
       sx={{ width: 224 }}
-      renderInput={params => <TextField {...params} label="Car brand" />}
+      renderInput={params => <TextField {...params} label="Price / 1 hour" />}
     />
   );
 }
