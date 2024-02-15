@@ -1,15 +1,11 @@
-import { Catalog } from 'components/Catalog/Catalog';
+import { CatalogList } from 'components/Catalog/CatalogList';
 import React from 'react';
 
 const CatalogPage = () => {
   return (
-    <div
-      style={{
-        border: '2px solid toBePartiallyChecked',
-        backgroundColor: 'orange',
-      }}
-    >
-      <Catalog />
+    <div>
+      <p>Catalog</p>
+      <CatalogList />
     </div>
   );
 };
