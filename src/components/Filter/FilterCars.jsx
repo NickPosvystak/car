@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyledContainer } from './FilterCars.styled';
+import BrandFilter from 'components/BrandFilter/BrandFilter';
 
 export const FilterCars = () => {
   return (
     <StyledContainer>
       <label>
         <p>Car brand</p>
-        <input />
+        <BrandFilter />
       </label>
       <label>
         <p>Price / 1 hour</p>
