@@ -1,11 +1,11 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCars } from '../../redux/operations';
 import { selectItems } from '../../redux/selectors';
 import { v4 as uuidv4 } from 'uuid';
+import { StyledAutocomplete } from './Price.styled';
 
 export default function Price() {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export default function Price() {
     }));
 
   return (
-    <Autocomplete
+    <StyledAutocomplete
       disablePortal
       id="combo-box-demo"
       options={filteredPrice}

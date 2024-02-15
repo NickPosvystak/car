@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { StyledBox } from './KmFilter.styled';
 
 export default function MileageInput() {
   const [fromKm, setFromKm] = useState('');
@@ -28,7 +28,7 @@ export default function MileageInput() {
   }, [maxMileage]);
 
   return (
-    <Box sx={{ minWidth: 160 }}>
+    <StyledBox>
       <FormControl fullWidth>
         <InputLabel id="from-select-label">From</InputLabel>
         <Select
@@ -61,6 +61,6 @@ export default function MileageInput() {
           ))}
         </Select>
       </FormControl>
-    </Box>
+    </StyledBox>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledContainer } from './FilterCars.styled';
+import { StyledBtn, StyledContainer } from './FilterCars.styled';
 import BrandFilter from 'components/BrandFilter/BrandFilter';
 import Price from 'components/Price/Price';
 import MileageRangeSelector from 'components/KmFilter/KmFilter';
@@ -16,7 +16,7 @@ export const FilterCars = () => {
       <label>
         <MileageRangeSelector />
       </label>
-      <button type="button">Search</button>
+      <StyledBtn type="submit">Search</StyledBtn>
     </StyledContainer>
   );
 };
