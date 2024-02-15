@@ -1,6 +1,6 @@
 import React from "react";
 
-const FavoritePage = () => {
+const FavoritesPage = () => {
     return (
       <div>
         <p
@@ -9,9 +9,9 @@ const FavoritePage = () => {
             backgroundColor: 'orange',
           }}
         >
-          Favorite page
+          Favorites page
         </p>
       </div>
     );
 }
-export default FavoritePage;
+export default FavoritesPage;

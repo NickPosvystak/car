@@ -1,16 +1,21 @@
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router';
+import SharedLayout from 'components/SharedLayout';
+import { Suspense, lazy } from 'react';
+import { Navigate, Route, Routes } from 'react-router';
 
-const Main = lazy(() => import('pages/MainPage'));
+const Home = lazy(() => import('pages/HomePage'));
 const Catalog = lazy(() => import('pages/CatalogPage'));
-const Favorite = lazy(() => import('pages/FavoritePage'));
+const Favorites = lazy(() => import('pages/FavoritesPage'));
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/catalog" element={<Catalog />} />
-      <Route path="/favorites" element={<Favorite />} />
-    </Routes>
+    <Suspense fallback="Loading...">
+      <Routes>
+        <Route path="/" element={<SharedLayout />} />
+        <Route index element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Suspense>
   );
 };

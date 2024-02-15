@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MainPage = () => {
+const HomePage = () => {
   return (
     <div>
       <p
@@ -9,9 +9,9 @@ const MainPage = () => {
           backgroundColor: 'orange',
         }}
       >
-        Main page
+        Home page
       </p>
     </div>
   );
 };
-export default MainPage;
+export default HomePage;
