@@ -8,14 +8,26 @@ export const allCars = async (page, limit) => {
   try {
     const response = await carInstance.get('/car', {
       params: {
-        page: page,
-        limit: limit,
+        page,
+        limit,
       },
     });
-    console.log('response.data: ====>', response.data);
+    // console.log('response.data: ====>', response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching cars:', error);
-    throw error; // rethrow the error to handle it in the calling code
+    throw error; 
+  }
+};
+
+export const CarById = async () => {
+  try {
+    const response = await carInstance.get('/car/:id');
+    console.log('response: ', response.data);
+
+    return response.data;
+  } catch (error) {
+    console.error('Error fetchedCarById:', error);
+    throw error;
   }
 };

@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { IoCloseOutline } from 'react-icons/io5';
 import styled from 'styled-components';
+import '../../index.css';
 
 export const StyledBox = styled(Box)`
   position: absolute;
@@ -29,7 +30,7 @@ export const StyledButton = styled.button`
   align-items: center;
   padding: 12px 99px 12px 99px;
   border-radius: 12px;
-  background: rgb(52, 112, 255);
+  background: var(--primary-color);
   color: rgb(255, 255, 255);
   font-family: Manrope;
   font-size: 14px;

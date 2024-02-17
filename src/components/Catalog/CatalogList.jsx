@@ -10,8 +10,9 @@ import {
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/operations';
-import { selectItems, selectItemsFilter } from '../../redux/selectors';
+import { selectItems } from '../../redux/selectors';
 import ModalBtn from 'components/Modal/Modal';
+import { v4 as uuidv4 } from 'uuid';
 
 const CatalogList = () => {
   const dispatch = useDispatch();
@@ -24,17 +25,17 @@ const CatalogList = () => {
   }, [dispatch]);
 
   const items = useSelector(selectItems) || [];
-  const filter = useSelector(selectItemsFilter) || '';
+  // const filter = useSelector(selectItemsFilter) || '';
 
   const filteredCars =
     Array.isArray(items) &&
     items.filter(
       item =>
         item.model &&
-        item.model.toLowerCase().includes(filter.toLowerCase().trim())
+        item.model.toLowerCase()
     );
-  
-   return (
+
+  return (
     <>
       <StyledUl>
         {filteredCars &&
@@ -62,7 +63,7 @@ const CatalogList = () => {
               const country = addressParts[2];
 
               return (
-                <StyledList key={id}>
+                <StyledList key={`${id}-${make}-${img}`}>
                   <StyledImg src={img} alt={make} />
                   <ModelDiv>
                     <span>
@@ -75,7 +76,26 @@ const CatalogList = () => {
                     {city}, {country} | {rentalCompany} | {type} | {id} |{' '}
                     {accessories[0]}
                   </StyledDescription>
-                  <ModalBtn>
+                  <ModalBtn
+                    carId={id}
+                    carInfo={{
+                      img,
+                      make,
+                      model,
+                      year,
+                      city,
+                      country,
+                      type,
+                      id,
+                      accessories,
+                      functionalities,
+                      rentalPrice,
+                      rentalCompany,
+                      address,
+                      rentalConditions,
+                      mileage,
+                    }}
+                  >
                     Learn more
                   </ModalBtn>
                 </StyledList>

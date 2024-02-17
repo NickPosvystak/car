@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     isLoading: false,
     error: null,
   },
-  filter: '',
+  filterMake: '',
 };
 
 const carsSlice = createSlice({
@@ -17,6 +17,9 @@ const carsSlice = createSlice({
     filterCars(state, action) {
       state.filter = action.payload;
     },
+    setFilterMake: (state, action) => {
+      state.filterMake = action.payload;
+    }
   },
   extraReducers: builder =>
     builder
@@ -36,3 +39,5 @@ const carsSlice = createSlice({
 
 export const carsReducer = carsSlice.reducer;
 export const { filterCars } = carsSlice.actions;
+export const { setFilterMake } = carsSlice.actions;
+
