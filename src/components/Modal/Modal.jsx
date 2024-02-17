@@ -5,13 +5,10 @@ import { StyledBox, StyledButton } from './Modal.styled';
 import IconClose from './Icon';
 // import StyledIconClose from './Icon';
 
-
-
 export default function ModalBtn() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
 
   return (
     <div>
