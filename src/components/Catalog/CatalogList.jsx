@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyledUl,
   StyledImg,
   StyledList,
   ModelDiv,
   StyledDescription,
+  StyledHeart,
+  StyledIconBtn,
 } from './CatalogList.styled';
 
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchCars } from '../../redux/operations';
-import { selectItems } from '../../redux/selectors';
 import ModalBtn from 'components/Modal/Modal';
-import { v4 as uuidv4 } from 'uuid';
 
-const CatalogList = () => {
+const CatalogList = ({ cars, selectedPrice }) => {
   const dispatch = useDispatch();
+    const [favorites, setFavorites] = useState([]);
 
   const page = 1;
   const limit = 12;
@@ -24,15 +25,25 @@ const CatalogList = () => {
     dispatch(fetchCars(page, limit));
   }, [dispatch]);
 
-  const items = useSelector(selectItems) || [];
-  // const filter = useSelector(selectItemsFilter) || '';
 
+    const toggleFavorite = id => {
+      if (favorites.includes(id)) {
+        setFavorites(favorites.filter(favId => favId !== id));
+      } else {
+        setFavorites([...favorites, id])
+          ;
+      }
+  };
+  const isFavorite = id => favorites.includes(id);
+  
+  
   const filteredCars =
-    Array.isArray(items) &&
-    items.filter(
+    cars &&
+    cars.filter(
       item =>
-        item.model &&
-        item.model.toLowerCase()
+        (!selectedPrice || item.rentalPrice <= selectedPrice.label) &&
+        item.make &&
+        item.make.toLowerCase()
     );
 
   return (
@@ -47,10 +58,7 @@ const CatalogList = () => {
               model,
               type,
               img,
-              description,
-              fuelConsumption,
-              engineSize,
-              accessories,
+                           accessories,
               functionalities,
               rentalPrice,
               rentalCompany,
@@ -65,6 +73,9 @@ const CatalogList = () => {
               return (
                 <StyledList key={`${id}-${make}-${img}`}>
                   <StyledImg src={img} alt={make} />
+                  <StyledIconBtn onClick={() => toggleFavorite(id)}>
+                    <StyledHeart className={isFavorite(id) ? 'favorite' : ''} />
+                  </StyledIconBtn>
                   <ModelDiv>
                     <span>
                       {make}&nbsp;

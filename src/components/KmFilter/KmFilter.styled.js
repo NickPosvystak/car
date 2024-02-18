@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const StyledBox = styled(Box)`
-width: 160px;
+width: 320px;
 display: flex;
 padding-right: 18px;
 `;

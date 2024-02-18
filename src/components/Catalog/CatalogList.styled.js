@@ -1,3 +1,4 @@
+import { FaRegHeart } from 'react-icons/fa';
 import styled from 'styled-components';
 
 export const StyledUl = styled.ul`
@@ -12,6 +13,7 @@ export const StyledUl = styled.ul`
 `;
 
 export const StyledList = styled.li`
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -79,4 +81,21 @@ export const StyledButton = styled.button`
   letter-spacing: 0%;
   text-align: left;
   cursor: pointer;
+`;
+
+export const StyledIconBtn = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  border: none;
+  cursor: pointer;
+`;
+export const StyledHeart = styled(FaRegHeart)`
+  color: black;
+
+  &.favorite {
+    background-color: red;
+    color:white;
+  }
 `;

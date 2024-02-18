@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     error: null,
   },
   filterMake: '',
+  filterPrice: '',
 };
 
 const carsSlice = createSlice({
@@ -19,6 +20,9 @@ const carsSlice = createSlice({
     },
     setFilterMake: (state, action) => {
       state.filterMake = action.payload;
+    },
+    setFilterPrice: (state, action) => {
+      state.filterPrice = action.payload;
     }
   },
   extraReducers: builder =>
@@ -40,4 +44,5 @@ const carsSlice = createSlice({
 export const carsReducer = carsSlice.reducer;
 export const { filterCars } = carsSlice.actions;
 export const { setFilterMake } = carsSlice.actions;
+export const { setFilterPrice } = carsSlice.actions;
 

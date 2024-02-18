@@ -44,7 +44,7 @@ export const NavLinkStyled = styled(NavLink)`
 
 export const StyledHeader = styled.header`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding-top: 10px;
   padding-bottom: 20px;
 

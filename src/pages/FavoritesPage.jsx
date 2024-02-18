@@ -1,17 +1,9 @@
-import React from "react";
-
 const FavoritesPage = () => {
-    return (
-      <div>
-        <p
-          style={{
-            border: '2px solid toBePartiallyChecked',
-            backgroundColor: 'orange',
-          }}
-        >
-          Favorites page
-        </p>
-      </div>
-    );
-}
+  return (
+    <div>
+      <p>No favorite cars yet!</p>
+    </div>
+  );
+};
+
 export default FavoritesPage;
